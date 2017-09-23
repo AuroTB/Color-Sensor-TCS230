@@ -75,7 +75,7 @@ void getFreq(){
 void showColor()
 {
   if(frequencyR<frequencyB&&frequencyB<frequencyG){
-    //rosa, ROJO Y NEGRO
+    //Pink, red, Black
     if(frequencyR>200){
       Serial.println("Negro");
     }
@@ -85,20 +85,20 @@ void showColor()
       Serial.println("Rosa");
     }
   }else if(frequencyG<frequencyR&&frequencyR<frequencyB){
-    //VERDE Y BLANCO
+    //White, green
     if(frequencyB-frequencyR>100){
       Serial.println("Verde");
     }else{
       Serial.println("Blanco");
     }
   }else if(frequencyB<frequencyG&&frequencyG<frequencyR){
-    //AZÚL
+    //Blue
     Serial.println("Azul");
   }else if(frequencyB<frequencyR&&frequencyR<frequencyG){
-    //NEGRO
+    //Black
     Serial.println("Negro");
   }else if(frequencyR<frequencyG&&frequencyG<frequencyB){
-    //AMARILLO
+    //Yellow
     Serial.println("Amarillo");
   }else{
     Serial.println("UNDF");
