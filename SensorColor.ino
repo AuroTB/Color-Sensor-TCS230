@@ -1,7 +1,9 @@
+//Sensor pin otputs
 #define S0 3
 #define S1 4
 #define S2 5
 #define S3 6
+//Input
 #define sensorOut 8
 
 int frequencyR=0, frequencyG=0, frequencyB =0;
@@ -30,7 +32,7 @@ void loop() {
   showColor();
 }
 
-void getFreq(){
+void getFreq(){     //Gets the frequencies of the red, green and blue filters
     // Setting red filtered photodiodes to be read
   digitalWrite(S2,LOW);
   digitalWrite(S3,LOW);
@@ -72,34 +74,34 @@ void getFreq(){
   delay(100);
 }
 
-void showColor()
+void showColor()      //Comparison code of frequencies
 {
   if(frequencyR<frequencyB&&frequencyB<frequencyG){
     //Pink, red, Black
     if(frequencyR>200){
-      Serial.println("Negro");
+      Serial.println("Black");
     }
     else if(frequencyB-frequencyR>210){
-      Serial.println("Rojo");
+      Serial.println("Red");
     }else{
-      Serial.println("Rosa");
+      Serial.println("Pink");
     }
   }else if(frequencyG<frequencyR&&frequencyR<frequencyB){
     //White, green
     if(frequencyB-frequencyR>100){
-      Serial.println("Verde");
+      Serial.println("Green");
     }else{
-      Serial.println("Blanco");
+      Serial.println("White");
     }
   }else if(frequencyB<frequencyG&&frequencyG<frequencyR){
     //Blue
-    Serial.println("Azul");
+    Serial.println("Blue");
   }else if(frequencyB<frequencyR&&frequencyR<frequencyG){
     //Black
-    Serial.println("Negro");
+    Serial.println("Black");
   }else if(frequencyR<frequencyG&&frequencyG<frequencyB){
     //Yellow
-    Serial.println("Amarillo");
+    Serial.println("Yellow");
   }else{
     Serial.println("UNDF");
   }
